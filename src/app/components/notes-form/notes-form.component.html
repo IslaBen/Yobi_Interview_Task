@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    <h1>{{data.id ? 'Save': 'Add'}} Note</h1>
+  </mat-card-title>
+  <form class="example-form" #form="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="title">Note title</mat-label>
+      <input id="title" matInput placeholder="Ex.Note..." required
+      [(ngModel)]="data.title" name="title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="description">Description</mat-label>
+      <textarea id="description" matInput placeholder="Ex. It makes me feel..." name="description" required [(ngModel)]="data.description"></textarea>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="submit(form.value)">{{data.id ? 'Save': 'Add'}}</button>
+      <button mat-raised-button (click)="reset.emit()">Reset</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

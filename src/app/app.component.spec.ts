@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -7,25 +8,16 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [MatDialogModule]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it(`should reset selected note`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    app.selectedNote = {id: '1', description: 'test', title: 'test'};
+    app.resetNote();
+    expect(app.selectedNote).toEqual({id: '', description: '', title: ''});
   });
 
-  it(`should have as title 'YobiNotes'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('YobiNotes');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('YobiNotes app is running!');
-  });
 });

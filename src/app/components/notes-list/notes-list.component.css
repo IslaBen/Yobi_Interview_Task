@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  padding: 30px 15px;
+}
+
+mat-card {
+  padding-block: 40px;
+}
+
+mat-list-item {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+mat-list-item span {
+  margin-inline-end: auto;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+mat-icon:first-of-type {
+  margin-inline-end: 10px;
+}
